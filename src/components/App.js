@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
 import SoundButton from './SoundButton.js';
-import audioSources from '../audioSources.json';
+import config from '../config.js';
 
 class App extends Component {
   render() {
-    const soundNames = Array.from(Object.keys(audioSources));
     return (
       <div>
         {
-          soundNames.map((name) => {
-            let audio = new Audio(audioSources[name]);
-            return <SoundButton key={name} name={name} audio={audio} />;
+          config.map((buttonConfig) => {
+            return <SoundButton key={buttonConfig.triggerKey} {...buttonConfig} />;
           })
         }
       </div>
