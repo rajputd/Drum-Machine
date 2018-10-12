@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import SoundButton from './SoundButton.js';
 import config from '../config.js';
+import '../css/App.css';
 
 class App extends Component {
   constructor(props) {
@@ -18,8 +19,13 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <div>
+      <div id="drum-machine">
+        <h1>Drum Machine</h1>
+        <p>click a button or press a key to hear a sound</p>
+        <div id="display">
+          {this.state.display}
+        </div>
+        <div id="soundButtons">
           {
             config.map((buttonConfig) => {
               return <SoundButton
@@ -28,9 +34,6 @@ class App extends Component {
                       playAudioHook={this.updateDisplay}/>;
             })
           }
-        </div>
-        <div id="display">
-          {this.state.display}
         </div>
       </div>
     );

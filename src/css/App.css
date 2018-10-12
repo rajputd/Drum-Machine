@@ -1,0 +1,35 @@
+body {
+  background-color: #c7ced8;
+}
+
+#drum-machine {
+  display: grid;
+  grid-row-gap: 3px;
+}
+
+#drum-machine * {
+  margin: auto;
+}
+
+#display {
+  padding-top: 10px;
+  height: 30px;
+  width: 300px;
+  border-radius: 5px;
+  background-color: gray;
+  text-align: center;
+  margin: auto;
+}
+
+#soundButtons {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 3px 3px;
+  margin: auto;
+
+  height: 300px;
+  width: 300px;
+  padding-top: 3px;
+
+  font-size: 3em;
+}

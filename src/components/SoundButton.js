@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../css/SoundButton.css';
 
 export default class SoundButton extends Component {
   constructor(props) {
@@ -36,7 +37,10 @@ export default class SoundButton extends Component {
 
   render() {
     return (
-      <button onClick={this.handleClick}>
+      <button
+        id={this.props.name.replace(/\s/g,"-")}
+        className="drum-pad"
+        onClick={this.handleClick}>
         {this.props.triggerKey}
         <audio id={this.props.triggerKey}>
           <source src={this.props.audioSrc} type="audio/mp3"/>
