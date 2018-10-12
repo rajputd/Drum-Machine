@@ -20,7 +20,8 @@ export default class SoundButton extends Component {
   }
 
   handleKeyPress(event) {
-    if (event.key == this.props.triggerKey) {
+    if (event.key == this.props.triggerKey ||
+        event.key == this.props.triggerKey.toLowerCase()) {
       this.playAudio();
     }
   }
