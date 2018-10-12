@@ -4,8 +4,6 @@ export default class SoundButton extends Component {
   constructor(props) {
     super(props);
 
-    this.audio = new Audio(this.props.audioSrc);
-
     this.handleClick = this.handleClick.bind(this);
     this.playAudio = this.playAudio.bind(this);
     this.handleKeyPress = this.handleKeyPress.bind(this);
@@ -13,6 +11,7 @@ export default class SoundButton extends Component {
 
   componentDidMount() {
     document.addEventListener('keypress', this.handleKeyPress);
+    this.audio = document.getElementById(this.props.triggerKey);
   }
 
   componentWillUnmount() {
@@ -36,7 +35,12 @@ export default class SoundButton extends Component {
 
   render() {
     return (
-      <button onClick={this.handleClick}>{this.props.triggerKey}</button>
-    )
+      <button onClick={this.handleClick}>
+        {this.props.triggerKey}
+        <audio id={this.props.triggerKey}>
+          <source src={this.props.audioSrc} type="audio/mp3"/>
+        </audio>
+      </button>
+    );
   }
 }
