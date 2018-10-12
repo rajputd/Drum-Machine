@@ -26,6 +26,7 @@ export default class SoundButton extends Component {
   }
 
   playAudio() {
+    this.props.playAudioHook(this.props);
     this.audio.play();
   }
 
